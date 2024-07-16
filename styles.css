@@ -1,0 +1,71 @@
+
+body {
+    height: 100vh;
+}
+
+header {
+
+    background-color: #333;
+    text-align: center;
+    padding : 10px;
+
+}
+
+#logo {
+
+    width : 100px;
+}
+
+
+h1 {
+    color: red;
+}
+
+
+ul {
+
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 20px;
+    font-weight: bold ;
+    list-style: none;
+}
+
+li {
+    color :gray;
+    padding :4px 10px;
+}
+
+li:hover {
+background-color: #333;
+color : white;
+padding :4px 10px;
+
+}
+
+main {
+
+    background-color: #666;
+    display :flex;
+    justify-content: center;
+}
+
+main div {
+
+    width: 50%;
+    text-align: center;
+
+}
+
+h2 {
+    font-size : 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color :gray;
+}
