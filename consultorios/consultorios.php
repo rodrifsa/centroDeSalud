@@ -91,7 +91,7 @@
 
 <br>
 <br>
-<a href="../index.php">Volver al Inicio</a>
+<a href="../home.php">Volver al Inicio</a>
 
 </body>
 

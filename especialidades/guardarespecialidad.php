@@ -21,5 +21,5 @@
     $respuesta = mysqli_query( $conexion, $consulta ) 
         or die("ERROR EN LA CONSULTA");
 
-    header("location: http://localhost/centro_de_salud/especialidades/especialidades.php");
+    header("location: especialidades.php");
     ?>

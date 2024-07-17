@@ -26,12 +26,12 @@
         $respuesta = mysqli_query( $conexion, $consulta ) 
             or die("ERROR EN LA CONSULTA");
 
-        header("location: http://localhost/centro_de_salud/consultorios/consultorios.php");
+        header("location: consultorios.php");
 
     } else {
         $error = "Debe Completar el campo...!";
 
-        header("location: http://localhost/centro_de_salud/consultorios/nuevoconsultorio.php?error='$error'");
+        header("location: nuevoconsultorio.php?error='$error'");
     }
 
    
