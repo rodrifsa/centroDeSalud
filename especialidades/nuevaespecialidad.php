@@ -30,6 +30,10 @@
             </div>
         </Form>
 
+        <br>
+        <a href="especialidades.php">
+        <button>Cancelar</button>
+        </a>
     </center>
 </body>
 

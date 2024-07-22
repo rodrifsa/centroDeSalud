@@ -43,6 +43,11 @@
             </div>
         </Form>
 
+        <br>
+        <a href="consultorios.php">
+        <button>Cancelar</button>
+        </a>
+
     </center>
 </body>
 

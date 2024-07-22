@@ -165,6 +165,10 @@
             </div>
         </Form>
 
+        <br>
+        <a href="medicos.php">
+        <button>Cancelar</button>
+        </a>
     </center>
 </body>
 
