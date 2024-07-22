@@ -19,7 +19,7 @@
         <ul>
             <li>Inicio</li>
             <li><a href="medicos/medicos.php">M&eacute;dicos</a></li>
-            <li>Pacientes</li>
+            <li><a href="pacientes/pacientes.php">Pacientes</a></li>
             <li>Turnos</li>
             <li><a href="consultorios/consultorios.php">Consultorios</a></li>
             <li><a href="especialidades/especialidades.php">Especialidades</a></li>

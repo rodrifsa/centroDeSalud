@@ -11,41 +11,53 @@
 
 <body>
 
-<?php
+    <?php
     //conectar a la base de datos
-    $db_servidor ="127.0.0.1"; //es lo mismo que localhost
+    $db_servidor = "127.0.0.1"; //es lo mismo que localhost
     $db_usuario = "root";
-    $db_password= "";
-    $db_basededatos ="centro_de_salud";
+    $db_password = "";
+    $db_basededatos = "centro_de_salud";
 
     $conexion = mysqli_connect($db_servidor, $db_usuario, $db_password, $db_basededatos)
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
-  
+
     //preparo la consulta 
-    $consulta ="SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
-               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
-               FROM medicos
-               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id 
-               ";
-    
+    $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id";
+
     //realizar consulta a la tabla especielidades
-    $respuesta = mysqli_query( $conexion, $consulta ) 
+    $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
     //header de la pagina
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>MEDICOS</h2></u>";
+    echo "<center><u><h2>PACIENTES</h2></u>";
 
-    echo "<a href='nuevomedico.php'>
-            <button>Nuevo Medico</button>
+    echo "<a href='nuevopaciente.php'>
+            <button>Nuevo Paciente</button>
           </a> </center> <br>";
 
 
-    if($respuesta->num_rows >0) {
-        //tabla para mostrar medicos
+    if ($respuesta->num_rows > 0) {
+        //tabla para mostrar Pacientes
         echo "<center>";
         echo "<table>";
         echo "    <tr bgcolor='gray'>";
@@ -66,11 +78,15 @@
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> ESPECIALIDAD </b>";
+        echo "            <b> SEXO </b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> MATRICULA </b>";
+        echo "            <b> FECHA NACIMIENTO </b>";
+        echo "        </td>";
+
+        echo "        <td>";
+        echo "            <b> OBRA SOCIAL </b>";
         echo "        </td>";
 
         echo "        <td>";
@@ -79,40 +95,44 @@
         echo "    </tr>";
 
         //recorrer la respuesta
-        while($row = mysqli_fetch_assoc($respuesta)){
+        while ($row = mysqli_fetch_assoc($respuesta)) {
 
             echo "<tr>";
 
             echo "<td>";
-                echo $row['cnombre_medico'];
+            echo $row['cnombre_apellido_paciente'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['ndni_medico'];
-            echo "</td>";
-            
-            echo "<td>";
-                echo $row['cdireccion_medico'];
+            echo $row['ndni_paciente'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['ctelefono_medico'];
+            echo $row['cdireccion_paciente'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['cnombre_especialidad'];
+            echo $row['ctel_paciente'];
+            echo "</td>";
+
+            echo "<td>";
+            echo $row['csexo_paciente'];
             echo "</td>";
 
 
             echo "<td>";
-                echo $row['nmatricula_medico'];
+            echo $row['dfecha_nac_paciente'];
             echo "</td>";
 
             echo "<td>";
-            
-            echo "<a href='modificarmedico.php?ID=" . $row['id'] . "'>Modificar</a>";
+            echo $row['cnombre_obra_social'];
+            echo "</td>";
+
+            echo "<td>";
+
+            echo "<a href='modificarpaciente.php?ID=" . $row['IDP'] . "'>Modificar</a>";
             echo " ";
-            echo "<a href='eliminarmedico.php?ID=" . $row['id'] . "'>Eliminar</a>";
+            echo "<a href='eliminarpaciente.php?ID=" . $row['IDP'] . "'>Eliminar</a>";
             echo "</td>";
 
             echo "</tr>";
@@ -120,17 +140,15 @@
 
         echo "</table>";
         echo "</center>";
-
     } else {
-        echo "<center><p>NO EXISTEN MEDICOS para ver..</p></center>";
+        echo "<center><p>NO EXISTEN PACIENTES para ver..</p></center>";
     }
-?>
+    ?>
 
-<br>
-<br>
-<a href="../home.php">Volver al Inicio</a>
+    <br>
+    <br>
+    <a href="../home.php">Volver al Inicio</a>
 
 </body>
 
 </html>
-
