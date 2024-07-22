@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - NUEVO MEDICO</title>
+    <title>CENTRO DE SALUD - NUEVO PACIENTE</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>NUEVO MEDICO</h2></u>";
+    echo "<center><u><h2>NUEVO PACIENTE</h2></u>";
 
     //conectar a la base de datos
     $db_servidor ="127.0.0.1"; //es lo mismo que localhost
@@ -35,8 +35,10 @@
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
 
-    //preparo la consulta 
-    $consulta ="SELECT id, cnombre_especialidad FROM especialidades";
+    //preparo la consulta
+    $consulta ="SELECT pacientes.id, pacientes.cnombre_apellido_paciente, pacientes.idobra_sociales, obra_social.cnombre_obra_social
+    FROM pacientes LEFT JOIN obra_social ON pacientes.idobra_sociales = obra_social.id";
+
     
     //realizar consulta a la tabla especielidades
     $respuesta = mysqli_query( $conexion, $consulta ) 
@@ -44,12 +46,12 @@
 
     ?>
     <center>
-        <Form action="guardarmedico.php" method="POST">
+        <Form action="guardarpaciente.php" method="POST">
 
-            <!-- nombre del medico -->
+            <!-- nombre del paciente -->
             <div class="input-form">
-                <label>Nombre :</label>
-                <input type="text" name="cnombre_medico" size="50" minlength="5" required>
+                <label>Nombre y Apellido:</label>
+                <input type="text" name="cnombre_apellido_paciente" size="50" minlength="5" required>
 
                 <?php 
                     if($error<>""){
@@ -58,10 +60,10 @@
                 ?>
             </div>
 
-           <!-- dni del medico --> 
+           <!-- dni del paciente --> 
             <div class="input-form">
                 <label>Dni :</label>
-                <input type="number" name="ndni_medico" size="8" required>
+                <input type="number" name="ndni_paciente" size="8" required>
 
                 <?php 
                     if($error<>""){
@@ -70,10 +72,10 @@
                 ?>
             </div>
 
-            <!-- direccion del medico -->
+            <!-- direccion del paciente -->
             <div class="input-form">
                 <label>Direci&oacute;n :</label>
-                <input type="text" name="cdireccion_medico" size="60" required >
+                <input type="text" name="cdireccion_paciente" size="60" required >
 
                 <?php 
                     if($error<>""){
@@ -82,10 +84,10 @@
                 ?>
             </div>
 
-            <!-- telefono del medico -->
+            <!-- telefono del paciente -->
             <div class="input-form">
                 <label>Tel&eacute;fono :</label>
-                <input type="text" name="ctelefono_medico" size="50" required>
+                <input type="text" name="ctel_paciente" size="50" required>
 
                 <?php 
                     if($error<>""){
@@ -94,19 +96,13 @@
                 ?>
             </div>
 
-            <!-- especialidad del medico --> 
+            <!-- Genero del pacientes --> 
             <div class="input-form">
-                <label>Especialidad :</label>
-                <select name="id_especialidad">
-                
-                <?php 
-                    //recorrer la respuesta
-                    while($row = mysqli_fetch_assoc($respuesta)){
+                <label>Sexo :</label>
 
-                            echo "<option value='" . $row['id'] . "'>" . $row['cnombre_especialidad'] ."</option>"; 
-                    }   
-                ?> 
-                </select>
+                <label> <input type="checkbox" id="cbox1" value="Masculino" /> Masculino </label>
+                <label> <input type="checkbox" id="cbox2" value="Femenino" /> Femenino </label>
+                <label> <input type="checkbox" id="cbox3" value="Otro" /> Otro </label>
 
               
                 <?php 
@@ -116,11 +112,11 @@
                 ?>
             </div>
 
-             <!-- matricula del medico --> 
-             <div class="input-form">
-                <label>Matricula :</label>
-                <input type="number" name="nmatricula_medico" size="10" required>
-
+            <!-- Fecha de nacimiento del paciente --> 
+            <div class="input-form">
+                <label>Fecha de nacimiento:</label>
+                <input type="date" name="dfecha_nac_paciente">
+               
                 <?php 
                     if($error<>""){
                         echo" <br><span style='color:red'>$error</span>";
@@ -128,11 +124,21 @@
                 ?>
             </div>
 
-            <!-- inicio de actividades --> 
+            <!-- especialidad del medico --> 
             <div class="input-form">
-                <label>Fecha de Inicio :</label>
-                <input type="date" name="dfecha_inicio">
-               
+                <label>Obra social :</label>
+                <select name="id_obra_sociales">
+                
+                <?php 
+                    //recorrer la respuesta
+                    while($row = mysqli_fetch_assoc($respuesta)){
+
+                            echo "<option value='" . $row['id'] . "'>" . $row['cnombre_obra_social'] ."</option>"; 
+                    }   
+                ?> 
+                </select>
+
+              
                 <?php 
                     if($error<>""){
                         echo" <br><span style='color:red'>$error</span>";
