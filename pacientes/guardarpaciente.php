@@ -1,17 +1,17 @@
 <?php
 
-    $cnombre_medico  = strtoupper($_REQUEST['cnombre_medico']);
-    $ndni_medico  = strtoupper($_REQUEST['ndni_medico']);
-    $cdireccion_medico  = strtoupper($_REQUEST['cdireccion_medico']);
-    $ctelefono_medico  = strtoupper($_REQUEST['ctelefono_medico']);
-    $nmatricula_medico  = strtoupper($_REQUEST['nmatricula_medico']);
-    $id_especialidad  = strtoupper($_REQUEST['id_especialidad']);
-    $dfecha_inicio  = strtoupper($_REQUEST['dfecha_inicio']);
+    $cnombre_apellido_paciente  = strtoupper($_REQUEST['cnombre_apellido_paciente']);
+    $ndni_paciente  = strtoupper($_REQUEST['ndni_paciente']);
+    $cdireccion_paciente  = strtoupper($_REQUEST['cdireccion_paciente']);
+    $ctel_paciente  = strtoupper($_REQUEST['ctel_paciente']);
+    $csexo_paciente  = strtoupper($_REQUEST['csexo_paciente']);
+    $dfecha_nac_paciente  = strtoupper($_REQUEST['dfecha_nac_paciente']);
+    $idobra_sociales   = strtoupper($_REQUEST['id_obra_sociales']);
 
     $error ="";
 
     //validacion de campos
-    if(trim($cnombre_medico) <> "") {
+    if(trim($cnombre_apellido_paciente) <> "") {
     
         //conectar a la base de datos
         $db_servidor ="127.0.0.1"; //es lo mismo que localhost
@@ -24,31 +24,31 @@
 
     
         //preparo la insercion 
-        $consulta ="INSERT INTO medicos 
-            (cnombre_medico,ndni_medico,
-                cdireccion_medico,
-                ctelefono_medico ,
-                nmatricula_medico ,
-                id_especialidad ,
-                 dfecha_inicio ) VALUES 
-            ('$cnombre_medico',
-                $ndni_medico,
-                '$cdireccion_medico',
-                '$ctelefono_medico',
-                $nmatricula_medico,
-                $id_especialidad,
-                '$dfecha_inicio')";
+        $consulta ="INSERT INTO pacientes 
+            (cnombre_apellido_paciente,ndni_paciente,
+                cdireccion_paciente ,
+                ctel_paciente ,
+                csexo_paciente ,
+                 dfecha_nac_paciente,
+                 idobra_sociales  ) VALUES 
+            ('$cnombre_apellido_paciente',
+                $ndni_paciente,
+                '$cdireccion_paciente',
+                '$ctel_paciente',
+                '$csexo_paciente',
+                '$dfecha_nac_paciente',
+                '$idobra_sociales')";
         
         //realizar consulta a la tabla especielidades
         $respuesta = mysqli_query( $conexion, $consulta ) 
             or die("ERROR EN LA CONSULTA");
 
-        header("location: medicos.php");
+        header("location: pacientes.php");
 
     } else {
         $error = "Debe Completar el campo...!";
 
-        header("location: nuevomedico.php?error='$error'");
+        header("location: nuevopaciente.php?error='$error'");
     }
 
    

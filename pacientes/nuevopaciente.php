@@ -98,11 +98,17 @@
 
             <!-- Genero del pacientes --> 
             <div class="input-form">
-                <label>Sexo :</label>
+                <!-- <label>Sexo :</label>
 
                 <label> <input type="checkbox" id="cbox1" value="Masculino" /> Masculino </label>
                 <label> <input type="checkbox" id="cbox2" value="Femenino" /> Femenino </label>
-                <label> <input type="checkbox" id="cbox3" value="Otro" /> Otro </label>
+                <label> <input type="checkbox" id="cbox3" value="Otro" /> Otro </label> -->
+
+                <select name="csexo_paciente" id="">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                </select>
 
               
                 <?php 
