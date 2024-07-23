@@ -96,7 +96,7 @@
                 ?>
             </div>
 
-            <!-- Genero del pacientes --> 
+            <!-- Genero del paciente --> 
             <div class="input-form">
                 <!-- <label>Sexo :</label>
 
@@ -130,7 +130,7 @@
                 ?>
             </div>
 
-            <!-- especialidad del medico --> 
+            <!-- Obra social del paciente --> 
             <div class="input-form">
                 <label>Obra social :</label>
                 <select name="id_obra_sociales">

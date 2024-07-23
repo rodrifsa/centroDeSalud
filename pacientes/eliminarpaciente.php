@@ -13,11 +13,11 @@
 
   
     //preparo el borrado 
-    $consulta ="DELETE FROM  medicos WHERE id=" . $ID;
+    $consulta ="DELETE FROM  pacientes WHERE id=" . $ID;
     
     //realizar consulta a la tabla medicos
     $respuesta = mysqli_query( $conexion, $consulta ) 
         or die("ERROR EN LA CONSULTA");
 
-    header("location: medicos.php");
+    header("location: pacientes.php");
     ?>

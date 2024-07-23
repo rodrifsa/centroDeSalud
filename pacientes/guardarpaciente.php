@@ -32,7 +32,7 @@
                  dfecha_nac_paciente,
                  idobra_sociales  ) VALUES 
             ('$cnombre_apellido_paciente',
-                $ndni_paciente,
+                '$ndni_paciente',
                 '$cdireccion_paciente',
                 '$ctel_paciente',
                 '$csexo_paciente',

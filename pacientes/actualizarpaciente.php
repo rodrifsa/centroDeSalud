@@ -1,13 +1,13 @@
 <?php
 
     $ID  = $_REQUEST['ID'];
-    $cnombre_medico  = strtoupper($_REQUEST['cnombre_medico']);
-    $ndni_medico  = strtoupper($_REQUEST['ndni_medico']);
-    $cdireccion_medico  = strtoupper($_REQUEST['cdireccion_medico']);
-    $ctelefono_medico  = strtoupper($_REQUEST['ctelefono_medico']);
-    $nmatricula_medico  = strtoupper($_REQUEST['nmatricula_medico']);
-    $id_especialidad  = strtoupper($_REQUEST['id_especialidad']);
-    $dfecha_inicio  = strtoupper($_REQUEST['dfecha_inicio']);
+    $cnombre_apellido_paciente  = strtoupper($_REQUEST['cnombre_apellido_paciente']);
+    $ndni_paciente  = strtoupper($_REQUEST['ndni_paciente']);
+    $cdireccion_paciente  = strtoupper($_REQUEST['cdireccion_paciente']);
+    $ctel_paciente  = strtoupper($_REQUEST['ctel_paciente']);
+    $csexo_paciente  = strtoupper($_REQUEST['csexo_paciente']);
+    $dfecha_nac_paciente  = strtoupper($_REQUEST['dfecha_nac_paciente']);
+    $idobra_sociales    = strtoupper($_REQUEST['id_obra_sociales']);
     
     //conectar a la base de datos
     $db_servidor ="127.0.0.1"; //es lo mismo que localhost
@@ -20,18 +20,18 @@
 
   
     //preparo la actualizacion 
-    $consulta ="UPDATE medicos SET cnombre_medico = '$cnombre_medico',
-        ndni_medico= $ndni_medico,
-        cdireccion_medico = '$cdireccion_medico',
-        ctelefono_medico = '$ctelefono_medico',
-        nmatricula_medico = $nmatricula_medico,
-        id_especialidad = $id_especialidad,
-        dfecha_inicio = '$dfecha_inicio' 
+    $consulta ="UPDATE pacientes SET cnombre_apellido_paciente = '$cnombre_apellido_paciente',
+        ndni_paciente= '$ndni_paciente',
+        cdireccion_paciente = '$cdireccion_paciente',
+        ctel_paciente = '$ctel_paciente',
+        csexo_paciente = '$csexo_paciente',
+        dfecha_nac_paciente = '$dfecha_nac_paciente',
+        idobra_sociales   = '$idobra_sociales' 
         WHERE id=" . $ID;
     
-    //realizar consulta a la tabla especielidades
+    //realizar consulta a la tabla pacientes
     $respuesta = mysqli_query( $conexion, $consulta ) 
         or die("ERROR EN LA CONSULTA");
 
-    header("location: medicos.php");
+    header("location: pacientes.php");
     ?>
