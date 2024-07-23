@@ -23,7 +23,7 @@
             <li>Turnos</li>
             <li><a href="consultorios/consultorios.php">Consultorios</a></li>
             <li><a href="especialidades/especialidades.php">Especialidades</a></li>
-            <li><a href="">Obras Sociales</a></li>
+            <li><a href="obras_sociales/obras_sociales.php">Obras Sociales</a></li>
         </ul>
     </nav>
 
