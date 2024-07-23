@@ -44,6 +44,13 @@
     $respuesta = mysqli_query( $conexion, $consulta ) 
         or die("ERROR EN LA CONSULTA");
 
+        //preparo la consulta de obras sociales
+    $consultaobra ="SELECT id, cnombre_obra_social FROM obra_social";
+    
+    //realizar consulta a la tabla obra_social
+    $obra_social = mysqli_query( $conexion, $consultaobra ) 
+        or die("ERROR EN LA CONSULTA");
+
     ?>
     <center>
         <Form action="guardarpaciente.php" method="POST">
@@ -137,7 +144,7 @@
                 
                 <?php 
                     //recorrer la respuesta
-                    while($row = mysqli_fetch_assoc($respuesta)){
+                    while($row = mysqli_fetch_assoc($obra_social)){
 
                             echo "<option value='" . $row['id'] . "'>" . $row['cnombre_obra_social'] ."</option>"; 
                     }   
