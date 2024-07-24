@@ -20,7 +20,7 @@
             <li>Inicio</li>
             <li><a href="medicos/medicos.php">M&eacute;dicos</a></li>
             <li><a href="pacientes/pacientes.php">Pacientes</a></li>
-            <li>Turnos</li>
+            <li><a href="turnos/turnos.php">Turnos</a></li>
             <li><a href="consultorios/consultorios.php">Consultorios</a></li>
             <li><a href="especialidades/especialidades.php">Especialidades</a></li>
             <li><a href="obras_sociales/obras_sociales.php">Obras Sociales</a></li>

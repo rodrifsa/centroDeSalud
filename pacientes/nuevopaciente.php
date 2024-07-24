@@ -36,13 +36,13 @@
 
 
     //preparo la consulta a la tabla pacientes
-    $consulta ="SELECT pacientes.id, pacientes.cnombre_apellido_paciente, pacientes.idobra_sociales, obra_social.cnombre_obra_social
-    FROM pacientes LEFT JOIN obra_social ON pacientes.idobra_sociales = obra_social.id";
+   // $consulta ="SELECT pacientes.id, pacientes.cnombre_apellido_paciente, pacientes.idobra_sociales, obra_social.cnombre_obra_social
+    //FROM pacientes LEFT JOIN obra_social ON pacientes.idobra_sociales = obra_social.id";
 
     
     //realizar consulta a la tabla pacientes
-    $respuesta = mysqli_query( $conexion, $consulta ) 
-        or die("ERROR EN LA CONSULTA");
+    //$respuesta = mysqli_query( $conexion, $consulta ) 
+     //   or die("ERROR EN LA CONSULTA");
 
     //preparo la consulta a la tabla obra_social
     $consultaobra ="SELECT id, cnombre_obra_social FROM obra_social";
@@ -110,7 +110,7 @@
                 <label> <input type="checkbox" id="cbox1" value="Masculino" /> Masculino </label>
                 <label> <input type="checkbox" id="cbox2" value="Femenino" /> Femenino </label>
                 <label> <input type="checkbox" id="cbox3" value="Otro" /> Otro </label> -->
-
+                <label>Sexo :</label>
                 <select name="csexo_paciente" id="">
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
