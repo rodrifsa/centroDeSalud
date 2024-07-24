@@ -12,7 +12,7 @@
 <body>
     
     <?php 
-        include('plantillas/header.php');
+        include('plantillas/header_index.php');
     ?>
 
     <nav>

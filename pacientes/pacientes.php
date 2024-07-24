@@ -22,7 +22,7 @@
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
 
-    //preparo la consulta 
+    //preparo la consulta a la tabla pacientes
     $consulta = "SELECT 
     pacientes.id as 'IDP', 
     pacientes.cnombre_apellido_paciente, 
@@ -41,7 +41,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id";
 
-    //realizar consulta a la tabla especielidades
+    //realizar consulta a la tabla pacientes
     $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 

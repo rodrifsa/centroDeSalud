@@ -18,6 +18,8 @@
 
     echo "<center><u><h2>MODIFICAR PACIENTE</h2></u>";
 
+
+    //toma la id del link en la pagina pacientes.php al tocar en "Modificar"
     $ID = $_REQUEST['ID'];
 
     $error="";
@@ -36,7 +38,7 @@
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
 
-    //preparo la consulta 
+    //preparo la consulta a la tabla pacientes con la id del link
     $consulta = "SELECT * FROM pacientes WHERE id=" . $ID;;
 
     //realizar consulta a la tabla pacientes
@@ -45,7 +47,7 @@
 
     $row = mysqli_fetch_assoc($respuesta);
 
-    //preparo la consulta de obras sociales
+    //preparo la consulta a la tabla obra_social
     $consulta ="SELECT id, cnombre_obra_social FROM obra_social";
     
     //realizar consulta a la tabla obra_social
