@@ -144,7 +144,18 @@ ON
         echo "<center><p>NO EXISTEN PACIENTES para ver..</p></center>";
     }
     ?>
-
+        <center>
+        <br>
+        <br>
+        <br>
+        <h3>Dar turno</h3>
+        <a href="../turnos/nuevoturno.php"><input type="submit" value="Dar nuevo turno"></a>
+        </center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <a href="../home.php">Volver al Inicio</a>

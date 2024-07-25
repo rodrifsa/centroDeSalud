@@ -13,7 +13,9 @@
     <?php
     include('../plantillas/header.php');
     ?>
-
+    <div>
+    <center class="login">
+<fieldset>
 <form action="verificarlogin.php" method="post">
 
     <label for="usuario">Usuario: 
@@ -29,8 +31,9 @@
     <br>
     <input type="submit" value="Ingresar">
 </form>
-
-
+</fieldset>
+</center>
+</div>
 
 </body>
 

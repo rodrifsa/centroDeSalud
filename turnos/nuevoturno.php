@@ -173,6 +173,12 @@
         <button>Cancelar</button>
         </a>
 
+        <br>
+        <br>
+        <br>
+        <h3>Recuerde que para dar un turno, el paciente debe estar en el sistema antes.</h3>
+        <a href="../pacientes/nuevopaciente.php"><input type="submit" value="Añadir un nuevo paciente"></a>
+
     </center>
 </body>
 
