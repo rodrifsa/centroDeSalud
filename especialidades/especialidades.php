@@ -23,7 +23,8 @@
 
   
     //preparo la consulta 
-    $consulta ="SELECT id, cnombre_especialidad FROM especialidades";
+    $consulta ="SELECT id, cnombre_especialidad FROM especialidades
+                ORDER BY especialidades.cnombre_especialidad";
     
     //realizar consulta a la tabla especielidades
     $respuesta = mysqli_query( $conexion, $consulta ) 

@@ -22,14 +22,23 @@
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
 
-    //preparo la consulta a la tabla pacientes
-    $consulta = "SELECT 
+    // orden en el que se muestran los pacientes
+
+    $orden = isset($_REQUEST['orden']) ? $_REQUEST['orden'] : 1;
+
+
+    //preparo la consulta: 1 nombre, 2 dni, 3 direccion, 4 telefono, 5 sexo, 6 edad, 7 nacimiento, 8 obra social
+
+    switch($orden) {
+        case 1:
+            $consulta = "SELECT 
     pacientes.id as 'IDP', 
     pacientes.cnombre_apellido_paciente, 
     pacientes.ndni_paciente, 
     pacientes.cdireccion_paciente,
     pacientes.ctel_paciente, 
     pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
     pacientes.dfecha_nac_paciente, 
     pacientes.idobra_sociales, 
     obra_social.id, 
@@ -39,7 +48,199 @@ FROM
 LEFT JOIN 
     obra_social 
 ON 
-    pacientes.idobra_sociales = obra_social.id";
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.cnombre_apellido_paciente";
+    break;
+        case 2:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.ndni_paciente";
+    break;
+        case 3:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.cdireccion_paciente";
+    break;
+        case 4:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.ctel_paciente";
+    break;
+        case 5:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.csexo_paciente";
+    break;
+        case 6:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY edad";
+    break;
+        case 7:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.dfecha_nac_paciente";
+    break;
+        case 8:
+            $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY obra_social.cnombre_obra_social";
+    break;
+        default:
+        $consulta = "SELECT 
+    pacientes.id as 'IDP', 
+    pacientes.cnombre_apellido_paciente, 
+    pacientes.ndni_paciente, 
+    pacientes.cdireccion_paciente,
+    pacientes.ctel_paciente, 
+    pacientes.csexo_paciente, 
+    TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+    pacientes.dfecha_nac_paciente, 
+    pacientes.idobra_sociales, 
+    obra_social.id, 
+    obra_social.cnombre_obra_social
+FROM 
+    pacientes
+LEFT JOIN 
+    obra_social 
+ON 
+    pacientes.idobra_sociales = obra_social.id
+ORDER BY pacientes.cnombre_apellido_paciente";
+    }
+
+
+
+    //preparo la consulta a la tabla pacientes
+//     $consulta = "SELECT 
+//     pacientes.id as 'IDP', 
+//     pacientes.cnombre_apellido_paciente, 
+//     pacientes.ndni_paciente, 
+//     pacientes.cdireccion_paciente,
+//     pacientes.ctel_paciente, 
+//     pacientes.csexo_paciente, 
+//     TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
+//     pacientes.dfecha_nac_paciente, 
+//     pacientes.idobra_sociales, 
+//     obra_social.id, 
+//     obra_social.cnombre_obra_social
+// FROM 
+//     pacientes
+// LEFT JOIN 
+//     obra_social 
+// ON 
+//     pacientes.idobra_sociales = obra_social.id";
 
     //realizar consulta a la tabla pacientes
     $respuesta = mysqli_query($conexion, $consulta)
@@ -56,41 +257,48 @@ ON
           </a> </center> <br>";
 
 
+                
+
     if ($respuesta->num_rows > 0) {
         //tabla para mostrar Pacientes
         echo "<center>";
         echo "<table>";
         echo "    <tr bgcolor='gray'>";
         echo "        <td>";
-        echo "            <b> NOMBRE </b>";
+        echo "            <b><a href='pacientes.php?orden=1'> NOMBRE </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> DNI </b>";
+        echo "            <b><a href='pacientes.php?orden=2'> DNI </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> DIRECCION </b>";
+        echo "            <b><a href='pacientes.php?orden=3'> DIRECCION </a></b>";
+        echo "        </td>";
+
+
+        echo "        <td>";
+        echo "            <b><a href='pacientes.php?orden=4'> TELEFONO </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> TELEFONO </b>";
+        echo "            <b><a href='pacientes.php?orden=5'> SEXO </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> SEXO </b>";
+        echo "            <b><a href='pacientes.php?orden=6'> EDAD </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> FECHA NACIMIENTO </b>";
+        echo "            <b><a href='pacientes.php?orden=7'> FECHA NACIMIENTO </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> OBRA SOCIAL </b>";
+        echo "            <b><a href='pacientes.php?orden=8'> OBRA SOCIAL </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> Acciones </b>";
+        echo "            <b> ACCIONES </b>";
         echo "        </td>";
         echo "    </tr>";
 
@@ -119,6 +327,9 @@ ON
             echo $row['csexo_paciente'];
             echo "</td>";
 
+            echo "<td>";
+            echo $row['edad'];
+            echo "</td>";
 
             echo "<td>";
             echo $row['dfecha_nac_paciente'];

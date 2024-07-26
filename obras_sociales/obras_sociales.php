@@ -23,7 +23,8 @@
 
 
     //preparo la consulta 
-    $consulta = "SELECT id, cnombre_obra_social FROM obra_social";
+    $consulta = "SELECT id, cnombre_obra_social FROM obra_social
+                 ORDER BY obra_social.cnombre_obra_social";
 
     //realizar consulta a la tabla de obras sociales
     $respuesta = mysqli_query($conexion, $consulta)
@@ -38,6 +39,7 @@
     echo "<a href='nuevaobra.php'>
             <button>Agregar nueva obra social</button>
           </a> </center> <br>";
+
 
 
     if ($respuesta->num_rows > 0) {

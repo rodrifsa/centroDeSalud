@@ -21,13 +21,71 @@
     $conexion = mysqli_connect($db_servidor, $db_usuario, $db_password, $db_basededatos)
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
+    // orden en el que se muestran los turnos
+
+    $orden = isset($_REQUEST['orden']) ? $_REQUEST['orden'] : 1;
+
+    //Preparo la consulta: 1 nombre, 2 dni, 3 direccion, 4 telefono, 5 especialidad, 6 matricula
   
-    //preparo la consulta 
-    $consulta ="SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+    switch ($orden) {
+        case 1:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
                ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
                FROM medicos
-               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id 
-               ";
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id
+               ORDER BY medicos.cnombre_medico";
+            break;
+        case 2:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+               FROM medicos
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id
+               ORDER BY medicos.ndni_medico";
+            break;
+        case 3:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+               FROM medicos
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id
+               ORDER BY medicos.cdireccion_medico";
+            break;
+        case 4:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+               FROM medicos
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id
+               ORDER BY medicos.ctelefono_medico";
+            break;
+        case 5:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+               FROM medicos
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id
+               ORDER BY especialidades.cnombre_especialidad";
+            break;
+        case 6:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+               FROM medicos
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id
+               ORDER BY medicos.nmatricula_medico";
+            break;
+        default:
+            $consulta = "SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+               ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+               FROM medicos
+               LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id  ";
+            break;
+    }
+
+
+
+    //preparo la consulta 
+    // $consulta ="SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
+    //            ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
+    //            FROM medicos
+    //            LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id  
+    //            ";
     
     //realizar consulta a la tabla especielidades
     $respuesta = mysqli_query( $conexion, $consulta ) 
@@ -49,32 +107,33 @@
         echo "<center>";
         echo "<table>";
         echo "    <tr bgcolor='gray'>";
-        echo "        <td>";
-        echo "            <b> NOMBRE </b>";
-        echo "        </td>";
+
+        echo "      <td>";
+        echo "          <b><a href='medicos.php?orden=1'> NOMBRE </a></b>";
+        echo "      </td>";
+
+        echo "      <td>";
+        echo "          <b><a href='medicos.php?orden=2'> DNI </a></b>";
+        echo "      </td>";
+
+        echo "      <td>";
+        echo "          <b><a href='medicos.php?orden=3'> DIRECCION </a></b>";
+        echo "      </td>";
+
+        echo "      <td>";
+        echo "          <b><a href='medicos.php?orden=4'> TELEFONO </a></b>";
+        echo "      </td>";
+
+        echo "      <td>";
+        echo "          <b><a href='medicos.php?orden=5'> ESPECIALIDAD </a></b>";
+        echo "      </td>";
+
+        echo "      <td>";
+        echo "          <b><a href='medicos.php?orden=6'> MATRICULA </a></b>";
+        echo "      </td>";
 
         echo "        <td>";
-        echo "            <b> DNI </b>";
-        echo "        </td>";
-
-        echo "        <td>";
-        echo "            <b> DIRECCION </b>";
-        echo "        </td>";
-
-        echo "        <td>";
-        echo "            <b> TELEFONO </b>";
-        echo "        </td>";
-
-        echo "        <td>";
-        echo "            <b> ESPECIALIDAD </b>";
-        echo "        </td>";
-
-        echo "        <td>";
-        echo "            <b> MATRICULA </b>";
-        echo "        </td>";
-
-        echo "        <td>";
-        echo "            <b> Acciones </b>";
+        echo "            <b> ACCIONES </b>";
         echo "        </td>";
         echo "    </tr>";
 

@@ -37,7 +37,6 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
-                         WHERE dttfecha_hora_turno >= CURDATE()
                          ORDER BY dttfecha_hora_turno";
             break;
         case 2:
@@ -47,7 +46,6 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
-                         WHERE dttfecha_hora_turno >= CURDATE()
                          ORDER BY pacientes.cnombre_apellido_paciente, dttfecha_hora_turno";
             break;
         case 3:
@@ -57,7 +55,6 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
-                         WHERE dttfecha_hora_turno >= CURDATE()
                          ORDER BY obra_social.cnombre_obra_social, dttfecha_hora_turno";
             break;
         case 4:
@@ -67,7 +64,6 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
-                         WHERE dttfecha_hora_turno >= CURDATE()
                          ORDER BY medicos.cnombre_medico, dttfecha_hora_turno";
             break;
         case 5:
@@ -77,7 +73,6 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
-                         WHERE dttfecha_hora_turno >= CURDATE()
                          ORDER BY consultorios.cnombre_consultorio, dttfecha_hora_turno";
             break;
         default:
@@ -87,7 +82,6 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
-                         WHERE dttfecha_hora_turno >= CURDATE()
                          ORDER BY dttfecha_hora_turno";
             break;
     }
@@ -124,19 +118,19 @@
         echo "<table>";
         echo "    <tr bgcolor='grey'>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=1'>FECHA TURNOS</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=1'>FECHA TURNOS</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=2'>NOMBRE DEL PACIENTE</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=2'>NOMBRE DEL PACIENTE</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=3'>OBRA SOCIAL PACIENTE</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=3'>OBRA SOCIAL PACIENTE</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=4'>MEDICO</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=4'>MEDICO</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=5'>CONSULTORIO</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=5'>CONSULTORIO</a></b>";
         echo "      </td>";
         echo "       <td>";
         echo "           <b> ACCIONES </b>";
@@ -192,7 +186,7 @@
 
 <br>
 <br>
-<a href="turnosHistorial.php">Historial</a>
+<a href="turnos.php">Volver a turnos del día</a>
 <br>
 <a href="../home.php">Volver al Inicio</a>
 
