@@ -265,40 +265,40 @@ ORDER BY pacientes.cnombre_apellido_paciente";
         echo "<table>";
         echo "    <tr bgcolor='gray'>";
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=1'> NOMBRE </a></b>";
+        echo "            <b><a href='pacientes.php?orden=1' style='color: black;'> NOMBRE </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=2'> DNI </a></b>";
+        echo "            <b><a href='pacientes.php?orden=2' style='color: black;'> DNI </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=3'> DIRECCION </a></b>";
+        echo "            <b><a href='pacientes.php?orden=3' style='color: black;'> DIRECCION </a></b>";
         echo "        </td>";
 
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=4'> TELEFONO </a></b>";
+        echo "            <b><a href='pacientes.php?orden=4' style='color: black;'> TELEFONO </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=5'> SEXO </a></b>";
+        echo "            <b><a href='pacientes.php?orden=5' style='color: black;'> SEXO </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=6'> EDAD </a></b>";
+        echo "            <b><a href='pacientes.php?orden=6' style='color: black;'> EDAD </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=7'> FECHA NACIMIENTO </a></b>";
+        echo "            <b><a href='pacientes.php?orden=7' style='color: black;'> FECHA NACIMIENTO </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=8'> OBRA SOCIAL </a></b>";
+        echo "            <b><a href='pacientes.php?orden=8' style='color: black;'> OBRA SOCIAL </a></b>";
         echo "        </td>";
 
         echo "        <td>";
-        echo "            <b> ACCIONES </b>";
+        echo "            <b style='color: black;'> ACCIONES </b>";
         echo "        </td>";
         echo "    </tr>";
 

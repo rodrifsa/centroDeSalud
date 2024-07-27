@@ -109,31 +109,31 @@
         echo "    <tr bgcolor='gray'>";
 
         echo "      <td>";
-        echo "          <b><a href='medicos.php?orden=1'> NOMBRE </a></b>";
+        echo "          <b><a href='medicos.php?orden=1' style='color: black;'> NOMBRE </a></b>";
         echo "      </td>";
 
         echo "      <td>";
-        echo "          <b><a href='medicos.php?orden=2'> DNI </a></b>";
+        echo "          <b><a href='medicos.php?orden=2' style='color: black;'> DNI </a></b>";
         echo "      </td>";
 
         echo "      <td>";
-        echo "          <b><a href='medicos.php?orden=3'> DIRECCION </a></b>";
+        echo "          <b><a href='medicos.php?orden=3' style='color: black;'> DIRECCION </a></b>";
         echo "      </td>";
 
         echo "      <td>";
-        echo "          <b><a href='medicos.php?orden=4'> TELEFONO </a></b>";
+        echo "          <b><a href='medicos.php?orden=4' style='color: black;'> TELEFONO </a></b>";
         echo "      </td>";
 
         echo "      <td>";
-        echo "          <b><a href='medicos.php?orden=5'> ESPECIALIDAD </a></b>";
+        echo "          <b><a href='medicos.php?orden=5' style='color: black;'> ESPECIALIDAD </a></b>";
         echo "      </td>";
 
         echo "      <td>";
-        echo "          <b><a href='medicos.php?orden=6'> MATRICULA </a></b>";
+        echo "          <b><a href='medicos.php?orden=6' style='color: black;'> MATRICULA </a></b>";
         echo "      </td>";
 
         echo "        <td>";
-        echo "            <b> ACCIONES </b>";
+        echo "            <b style='color: black;'> ACCIONES </b>";
         echo "        </td>";
         echo "    </tr>";
 
@@ -169,9 +169,9 @@
 
             echo "<td>";
             
-            echo "<a href='modificarmedico.php?ID=" . $row['id'] . "'>Modificar</a>";
+            echo "<a href='modificarmedico.php?ID=" . $row['id'] . "' class='hoverusuario'>Modificar</a>";
             echo " ";
-            echo "<a href='eliminarmedico.php?ID=" . $row['id'] . "'>Eliminar</a>";
+            echo "<a href='eliminarmedico.php?ID=" . $row['id'] . "' class='hoverusuario'>Eliminar</a>";
             echo "</td>";
 
             echo "</tr>";
@@ -187,7 +187,7 @@
 
 <br>
 <br>
-<a href="../home.php">Volver al Inicio</a>
+<a  href="../home.php">Volver al Inicio</a>
 
 </body>
 

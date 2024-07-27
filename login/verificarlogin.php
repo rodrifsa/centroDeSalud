@@ -45,8 +45,18 @@
     //verificar si existe usuario
 
     if (!$row) {
+        echo "<center>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
         echo "<h1>Usuario o contraseña incorrectos</h1><br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
         echo '<a href="login.php">Volver al login</a>';
+        echo "</center>";
     } else {
         header("location: ../home.php");
     }

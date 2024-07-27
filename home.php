@@ -17,7 +17,7 @@
 
     <nav>
         <ul>
-            <li>Inicio</li>
+            <li><a href="login/nuevousuario.php">Crear Usuario</a></li>
             <li><a href="medicos/medicos.php">M&eacute;dicos</a></li>
             <li><a href="pacientes/pacientes.php">Pacientes</a></li>
             <li><a href="turnos/turnos.php">Turnos</a></li>

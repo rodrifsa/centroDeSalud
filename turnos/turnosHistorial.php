@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - TURNOS</title>
+    <title>CENTRO DE SALUD - HISTORIAL TURNOS</title>
 </head>
 
 <body>
@@ -37,6 +37,7 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
+                         WHERE dttfecha_hora_turno < CURDATE()
                          ORDER BY dttfecha_hora_turno";
             break;
         case 2:
@@ -46,6 +47,7 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
+                         WHERE dttfecha_hora_turno < CURDATE()
                          ORDER BY pacientes.cnombre_apellido_paciente, dttfecha_hora_turno";
             break;
         case 3:
@@ -55,6 +57,7 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
+                         WHERE dttfecha_hora_turno < CURDATE()
                          ORDER BY obra_social.cnombre_obra_social, dttfecha_hora_turno";
             break;
         case 4:
@@ -64,6 +67,7 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
+                         WHERE dttfecha_hora_turno < CURDATE()
                          ORDER BY medicos.cnombre_medico, dttfecha_hora_turno";
             break;
         case 5:
@@ -73,6 +77,7 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
+                         WHERE dttfecha_hora_turno < CURDATE()
                          ORDER BY consultorios.cnombre_consultorio, dttfecha_hora_turno";
             break;
         default:
@@ -82,6 +87,7 @@
                          LEFT JOIN medicos ON turnos.idmedicos = medicos.id
                          LEFT JOIN consultorios ON turnos.idconsultorios = consultorios.id
                          LEFT JOIN obra_social ON turnos.idobra_sociales = obra_social.id
+                         WHERE dttfecha_hora_turno < CURDATE()
                          ORDER BY dttfecha_hora_turno";
             break;
     }
@@ -105,35 +111,33 @@
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>TURNOS</h2></u>";
-
-    echo "<a href='nuevoturno.php'>
-            <button>Nuevo Turno</button>
-          </a> </center> <br>";
-
+    echo "<center><u><h2>HISTORIAL TURNOS</h2></u>";
+    echo "</center>";
 
     if($respuesta->num_rows >0) {
         //tabla para mostrar turnos
         echo "<center>";
+        echo "<br>";
+        echo "<br>";
         echo "<table>";
         echo "    <tr bgcolor='grey'>";
         echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=1'>FECHA TURNOS</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=1' style='color: black;'>FECHA TURNOS</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=2'>NOMBRE DEL PACIENTE</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=2' style='color: black;'>NOMBRE DEL PACIENTE</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=3'>OBRA SOCIAL PACIENTE</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=3' style='color: black;'>OBRA SOCIAL PACIENTE</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=4'>MEDICO</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=4' style='color: black;'>MEDICO</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=5'>CONSULTORIO</a></b>";
+        echo "          <b><a href='turnosHistorial.php?orden=5' style='color: black;'>CONSULTORIO</a></b>";
         echo "      </td>";
         echo "       <td>";
-        echo "           <b> ACCIONES </b>";
+        echo "           <b style='color: black;'> ACCIONES </b>";
         echo "       </td>";
         echo "    </tr>";
 
@@ -183,13 +187,18 @@
     }
 
 ?>
-
+<center>
 <br>
 <br>
-<a href="turnos.php">Volver a turnos del día</a>
+<br>
+<br>
+<br>
+<br>
+<a href="turnos.php">Volver a turnos pendientes</a>
+<br>
 <br>
 <a href="../home.php">Volver al Inicio</a>
-
+</center>
 </body>
 
 </html>

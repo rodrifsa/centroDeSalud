@@ -124,22 +124,22 @@
         echo "<table>";
         echo "    <tr bgcolor='grey'>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=1'>FECHA TURNOS</a></b>";
+        echo "          <b><a href='turnos.php?orden=1' style='color: black;'>FECHA TURNOS</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=2'>NOMBRE DEL PACIENTE</a></b>";
+        echo "          <b><a href='turnos.php?orden=2' style='color: black;'>NOMBRE DEL PACIENTE</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=3'>OBRA SOCIAL PACIENTE</a></b>";
+        echo "          <b><a href='turnos.php?orden=3' style='color: black;'>OBRA SOCIAL PACIENTE</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=4'>MEDICO</a></b>";
+        echo "          <b><a href='turnos.php?orden=4' style='color: black;'>MEDICO</a></b>";
         echo "      </td>";
         echo "      <td>";
-        echo "          <b><a href='turnos.php?orden=5'>CONSULTORIO</a></b>";
+        echo "          <b><a href='turnos.php?orden=5' style='color: black;'>CONSULTORIO</a></b>";
         echo "      </td>";
         echo "       <td>";
-        echo "           <b> ACCIONES </b>";
+        echo "           <b style='color: black;'> ACCIONES </b>";
         echo "       </td>";
         echo "    </tr>";
 
@@ -189,13 +189,14 @@
     }
 
 ?>
-
+<center>
 <br>
 <br>
 <a href="turnosHistorial.php">Historial</a>
 <br>
+<br>
 <a href="../home.php">Volver al Inicio</a>
-
+</center>
 </body>
 
 </html>

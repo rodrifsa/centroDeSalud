@@ -39,7 +39,7 @@
                 '$dfecha_nac_paciente',
                 '$idobra_sociales')";
         
-        //realizar consulta a la tabla especielidades
+        //realizar consulta a la tabla pacientes
         $respuesta = mysqli_query( $conexion, $consulta ) 
             or die("ERROR EN LA CONSULTA");
 
