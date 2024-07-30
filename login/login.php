@@ -42,7 +42,6 @@
     <br>
     <br>
     <br>
-    <a  href="../login/nuevousuario.php"><label class="hoverusuario" for="newuser">No posee una cuenta? Click aqui para crear una.</label></a>
 </form>
 </fieldset>
 </center>
