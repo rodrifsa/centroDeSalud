@@ -48,51 +48,103 @@
             <div class="swiper-wrapper">
                 <div class="card swiper-slide">
                     <div class="card__image">
-                        <img src="images/person_1_sm.jpg" alt="card image">
+                        <img src="images/medica1.png" alt="card image">
                     </div>
 
                     <div class="card__content">
-                        <span class="card__title">Web Designer</span>
-                        <span class="card__name">Vanessa Martinez</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+                        <span class="card__title">Dra. Vanesa Shimura</span>
+                        <br>
+                        <span class="card__name"><strong>Pediatra</strong></span>
                     </div>
                 </div>
 
                 <div class="card swiper-slide">
                     <div class="card__image">
-                        <img src="images/person_2_sm.jpg" alt="card image">
+                        <img src="images/medico2.png" alt="card image">
                     </div>
 
                     <div class="card__content">
-                        <span class="card__title">Ui Designer</span>
-                        <span class="card__name">Sarah Bowen</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+                        <span class="card__title">Dr. Luis Petri</span>
+                        <br>
+                        <span class="card__name"><strong>Neurólogo</strong></span>
                     </div>
                 </div>
 
                 <div class="card swiper-slide">
                     <div class="card__image">
-                        <img src="images/person_3_sm.jpg" alt="card image">
+                        <img src="images/medico3.png" alt="card image">
                     </div>
 
                     <div class="card__content">
-                        <span class="card__title">Web Developer</span>
-                        <span class="card__name">David Murphy</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+                        <span class="card__title">Dr. Sanjeev Bhaskar</span>
+                        <br>
+                        <span class="card__name"><strong>Nefrólogo</strong></span>
                     </div>
                 </div>
 
                 <div class="card swiper-slide">
                     <div class="card__image">
-                        <img src="images/person_1_sm.jpg" alt="card image">
+                        <img src="images/medico4.png" alt="card image">
                     </div>
 
                     <div class="card__content">
-                        <span class="card__title">Mobile Designer</span>
-                        <span class="card__name">Kelsey West</span>
-                        <p class="card__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum</p>
+                        <span class="card__title">Dr. Ronald Espinoza</span>
+                        <br>
+                        <span class="card__name"><strong>Oncólogo</strong></span>
                     </div>
                 </div>
+                
+
+            </div>
+
+            <div class="swiper-wrapper">
+                <div class="card swiper-slide">
+                    <div class="card__image">
+                        <img src="images/medica5.png" alt="card image">
+                    </div>
+
+                    <div class="card__content">
+                        <span class="card__title">Dra. Larisa Robles</span>
+                        <br>
+                        <span class="card__name"><strong>Ginecóloga</strong></span>
+                    </div>
+                </div>
+
+                <div class="card swiper-slide">
+                    <div class="card__image">
+                        <img src="images/medica6.png" alt="card image">
+                    </div>
+
+                    <div class="card__content">
+                        <span class="card__title">Dra. Mary Maynard</span>
+                        <br>
+                        <span class="card__name"><strong>Traumatóloga</strong></span>
+                    </div>
+                </div>
+
+                <div class="card swiper-slide">
+                    <div class="card__image">
+                        <img src="images/medico7.png" alt="card image">
+                    </div>
+
+                    <div class="card__content">
+                        <span class="card__title">Dr. Mario Scali</span>
+                        <br>
+                        <span class="card__name"><strong>Urólogo</strong></span>
+                    </div>
+                </div>
+
+                <div class="card swiper-slide">
+                    <div class="card__image">
+                        <img src="images/medica8.png" alt="card image">
+                    </div>
+
+                    <div class="card__content">
+                        <span class="card__title">Dra. Jessica Ramirez</span>
+                        <br>
+                        <span class="card__name"><strong>Dentista</strong></span>
+                </div>
+                
 
             </div>
         </div>
@@ -106,44 +158,88 @@
 
             <div class="projcard projcard-blue">
                 <div class="projcard-innerbox">
-                    <img class="projcard-img" src="https://picsum.photos/800/600?image=1041" />
+                    <img class="projcard-img" src="./images/espe_pediatria.png" />
                     <div class="projcard-textbox">
-                        <div class="projcard-title">Card Title</div>
-                        <div class="projcard-subtitle">This explains the card in more detail</div>
-                        <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                        <div class="projcard-title">Pediatría</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros pediatras realizan chequeos regulares, vacunaciones, y tratan enfermedades infantiles, asegurando el desarrollo saludable del niño.</div>
                     </div>
                 </div>
             </div>
 
             <div class="projcard projcard-red">
                 <div class="projcard-innerbox">
-                    <img class="projcard-img" src="https://picsum.photos/800/600?image=1080" />
+                    <img class="projcard-img" src="./images/espe_neurologia.png" />
                     <div class="projcard-textbox">
-                        <div class="projcard-title">That's Another Card</div>
-                        <div class="projcard-subtitle">I don't really think that I need to explain anything here</div>
-                        <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                        <div class="projcard-title">Neurología</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros neurólogos tratan enfermedades como epilepsia, migrañas, esclerosis múltiple y trastornos neurodegenerativos, utilizando estudios como electroencefalogramas (EEG) y resonancias magnéticas (RM).</div>
                     </div>
                 </div>
             </div>
 
             <div class="projcard projcard-green">
                 <div class="projcard-innerbox">
-                    <img class="projcard-img" src="https://picsum.photos/800/600?image=1039" />
+                    <img class="projcard-img" src="./images/espe_nefrologia.png" />
                     <div class="projcard-textbox">
-                        <div class="projcard-title">And a Third Card</div>
-                        <div class="projcard-subtitle">You know what this is by now</div>
-                        <div class="projcard-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div>
+                        <div class="projcard-title">Nefrología</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros nefrólogos manejan condiciones como insuficiencia renal, hipertensión y enfermedades renales crónicas, ofreciendo tratamientos como diálisis y trasplantes de riñón.</div>
                     </div>
                 </div>
             </div>
 
             <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;">
                 <div class="projcard-innerbox">
-                    <img class="projcard-img" src="https://picsum.photos/800/600?image=943" />
+                    <img class="projcard-img" src="./images/espe_oncologia.png" />
                     <div class="projcard-textbox">
-                        <div class="projcard-title">Last Card</div>
-                        <div class="projcard-subtitle">That's the last one. Have a nice day!</div>
-                        <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+                        <div class="projcard-title">Oncología</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros oncólogos proporcionan diagnóstico, tratamiento y seguimiento de pacientes con cáncer, utilizando quimioterapia, radioterapia y cirugía, además de terapias dirigidas y de inmunoterapia.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projcard projcard-blue">
+                <div class="projcard-innerbox">
+                    <img class="projcard-img" src="./images/espe_ginecologia.png" />
+                    <div class="projcard-textbox">
+                        <div class="projcard-title">Ginecología</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestras ginecólogas y ginecólogos realizan chequeos regulares, tratan trastornos menstruales, infecciones y problemas de fertilidad, además de realizar procedimientos quirúrgicos cuando es necesario.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projcard projcard-blue">
+                <div class="projcard-innerbox">
+                    <img class="projcard-img" src="./images/espe_traumatologia.png" />
+                    <div class="projcard-textbox">
+                        <div class="projcard-title">Traumatología</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros traumatólogos manejan fracturas, esguinces, lesiones deportivas y otros traumas, utilizando tanto tratamientos conservadores como quirúrgicos para la rehabilitación y recuperación.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projcard projcard-blue">
+                <div class="projcard-innerbox">
+                    <img class="projcard-img" src="./images/espe_urologo.png" />
+                    <div class="projcard-textbox">
+                        <div class="projcard-title">Urología</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros urólogos diagnostican y tratan afecciones como infecciones urinarias, incontinencia, cálculos renales y problemas prostáticos, ofreciendo también cirugías urológicas cuando es necesario.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projcard projcard-blue">
+                <div class="projcard-innerbox">
+                    <img class="projcard-img" src="./images/espe_dentistas.png" />
+                    <div class="projcard-textbox">
+                        <div class="projcard-title">Salud Bucal</div>
+                        <div class="projcard-subtitle"></div>
+                        <div class="projcard-description">Nuestros dentistas realizan limpiezas, chequeos, empastes, extracciones, y tratamientos para enfermedades de las encías, además de ofrecer servicios de ortodoncia y estética dental.</div>
                     </div>
                 </div>
             </div>

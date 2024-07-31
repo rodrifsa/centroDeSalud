@@ -47,10 +47,6 @@
         echo "<table>";
         echo "    <tr bgcolor='gray'>";
         echo "        <td>";
-        echo "            <b> ID </b>";
-        echo "        </td>";
-
-        echo "        <td>";
         echo "            <b> NOMBRE </b>";
         echo "        </td>";
 
@@ -64,11 +60,7 @@
         while($row = mysqli_fetch_assoc($respuesta)){
 
             echo "<tr>";
-
-            echo "<td>";
-                echo $row['id'];
-            echo "</td>";
-
+            
             echo "<td>";
                 echo $row['cnombre_especialidad'];
             echo "</td>";
