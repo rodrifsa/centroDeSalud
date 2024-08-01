@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - MODIFICAR MEDICO</title>
+    <title>Centro De Salud - Modificar Obra Social</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
@@ -20,10 +22,10 @@
 
     $ID = $_REQUEST['ID'];
 
-    $error="";
+    $error = "";
 
-    if(isset($_REQUEST['error'])){
-        $error=$_REQUEST['error'];
+    if (isset($_REQUEST['error'])) {
+        $error = $_REQUEST['error'];
     }
 
     //conectar a la base de datos
@@ -46,43 +48,47 @@
     $row = mysqli_fetch_assoc($respuesta);
 
     //preparo la consulta de obras sociales
-    $consulta ="SELECT id, cnombre_obra_social FROM obra_social";
-    
+    $consulta = "SELECT id, cnombre_obra_social FROM obra_social";
+
     //realizar consulta a la tabla de obras sociales
-    $especialidades = mysqli_query( $conexion, $consulta ) 
+    $especialidades = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
-   
+
 
     ?>
-    <center>
+    <div class="formulario">
         <Form action="actualizarobra.php" method="POST">
-
+            <h2>Modificar Obra Social</h2>
             <!-- id de la obra social- campo oculto -->
-             <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
-            <!-- nombre de la obra social -->
+            <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
+
             <div class="input-form">
-                <label>Nombre:</label>
-                <input type="text" name="cnombre_obra_social" size="20" minlength="5" required
-                    value="<?php echo $row['cnombre_obra_social']; ?>">
+
                 <?php
                 if ($error <> "") {
                     echo " <br><span style='color:red'>$error</span>";
                 }
                 ?>
+                <!-- nombre de la obra social -->
+                <label>Nombre:</label>
+                <input type="text" class="campo" name="cnombre_obra_social" size="20" minlength="5" required value="<?php echo $row['cnombre_obra_social']; ?>">
+
             </div>
 
-            <br>
-            <div class="input-form">
-                <input type="submit" value="Guardar">
+
+            <div class="btn-input">
+                <input type="submit" class="btn-nuevo nuevo" value="Modificar Datos">
+                <a href="obras_sociales.php" class="btn-volver">Cancelar</a>
             </div>
+
         </Form>
+    </div>
 
-        <br>
-        <a href="obras_sociales.php">
-        <button>Cancelar</button>
-        </a>
-    </center>
+    <?php
+    include('../plantillas/footer.php');
+    ?>
+
 </body>
 
 </html>

@@ -6,49 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - NUEVO CONSULTORIO</title>
+    <title>Centro De Salud - Nuevo Consultorio</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
 
     <?php
 
-    $error="";
+    $error = "";
 
-    if(isset($_REQUEST['error'])){
-        $error=$_REQUEST['error'];
+    if (isset($_REQUEST['error'])) {
+        $error = $_REQUEST['error'];
     }
 
     //header de la pagina
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>NUEVO CONSULTORIO</h2></u>";
     ?>
-    <center>
+    <div class="formulario">
         <Form action="guardarconsultorio.php" method="POST">
-            <div class="input-form">
-                <label>Nombre :</label>
-                <input type="text" name="cnombre_consultorio" size="50" minlength="5" required>
+            <h2>Nuevo Consultorio</h2>
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
+            <div class="input-form">
+                <?php
+                if ($error <> "") {
+                    echo " <br><span style='color:red'>$error</span>";
+                }
                 ?>
+
+                <label>Nombre :</label>
+                <input type="text" name="cnombre_consultorio" placeholder="Ingrese el nombre del consultorio..." class="campo" size="50" minlength="5" required>
+
+
             </div>
-            <br>
-            <div class="input-form">
-                <input type="submit" value="Guardar">
+
+            <div class="btn-input">
+                <input type="submit" class="btn-nuevo nuevo" value="Agregar Consultorio">
+                <a href="consultorios.php" class="btn-volver">Cancelar</a>
             </div>
+
         </Form>
+    </div>
 
-        <br>
-        <a href="consultorios.php">
-        <button>Cancelar</button>
-        </a>
+    <?php
+    include('../plantillas/footer.php');
+    ?>
 
-    </center>
 </body>
 
 </html>

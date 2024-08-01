@@ -6,10 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - MEDICOS</title>
+    <title>Centro De Salud - Medicos</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
+
+    <?php
+    //header de la pagina
+
+    include('../plantillas/header.php');
+    ?>
+
+    <nav class="nav-container">
+        <ul>
+            <li><a href="../home.php">Inicio</a></li>
+            <li><a href="../login/nuevousuario.php">Crear Usuario</a></li>
+            <li><a href="../medicos/medicos.php">M&eacute;dicos</a></li>
+            <li><a href="../pacientes/pacientes.php">Pacientes</a></li>
+            <li><a href="../turnos/turnos.php">Turnos</a></li>
+            <li><a href="../consultorios/consultorios.php">Consultorios</a></li>
+            <li><a href="../especialidades/especialidades.php">Especialidades</a></li>
+            <li><a href="../obras_sociales/obras_sociales.php">Obras Sociales</a></li>
+        </ul>
+    </nav>
 
     <?php
     //conectar a la base de datos
@@ -78,62 +99,43 @@
             break;
     }
 
-
-
-    //preparo la consulta 
-    // $consulta ="SELECT medicos.id, cnombre_medico, ndni_medico , cdireccion_medico,
-    //            ctelefono_medico, nmatricula_medico , id_especialidad , cnombre_especialidad
-    //            FROM medicos
-    //            LEFT JOIN especialidades ON medicos.id_especialidad = especialidades.id  
-    //            ";
-
     //realizar consulta a la tabla especielidades
     $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
-    //header de la pagina
-
-    include('../plantillas/header.php');
-
-    echo "<center><u><h2>MEDICOS</h2></u>";
-
-    echo "<a href='nuevomedico.php'>
-            <button>Nuevo Medico</button>
-          </a> </center> <br>";
-
-
     if ($respuesta->num_rows > 0) {
         //tabla para mostrar medicos
         echo "<div class='tabla'>";
-        echo "<table>";
-        echo "    <tr bgcolor='gray'>";
+        echo "<center><u><h2>Medicos</h2></u>";
+        echo "<table class='table-hover'>";
+        echo "    <tr>";
 
         echo "      <th>";
-        echo "          <b><a href='medicos.php?orden=1' style='color: black;'> NOMBRE </a></b>";
+        echo "          <b><a href='medicos.php?orden=1'> Nombre </a></b>";
         echo "      </th>";
 
         echo "      <th>";
-        echo "          <b><a href='medicos.php?orden=2' style='color: black;'> DNI </a></b>";
+        echo "          <b><a href='medicos.php?orden=2'> Dni </a></b>";
         echo "      </th>";
 
         echo "      <th>";
-        echo "          <b><a href='medicos.php?orden=3' style='color: black;'> DIRECCION </a></b>";
+        echo "          <b><a href='medicos.php?orden=3'> Direccion </a></b>";
         echo "      </th>";
 
         echo "      <th>";
-        echo "          <b><a href='medicos.php?orden=4' style='color: black;'> TELEFONO </a></b>";
+        echo "          <b><a href='medicos.php?orden=4'> Telefono </a></b>";
         echo "      </th>";
 
         echo "      <th>";
-        echo "          <b><a href='medicos.php?orden=5' style='color: black;'> ESPECIALIDAD </a></b>";
+        echo "          <b><a href='medicos.php?orden=5'> Especialidad </a></b>";
         echo "      </th>";
 
         echo "      <th>";
-        echo "          <b><a href='medicos.php?orden=6' style='color: black;'> MATRICULA </a></b>";
+        echo "          <b><a href='medicos.php?orden=6'> Matricula </a></b>";
         echo "      </th>";
 
         echo "        <th>";
-        echo "            <b style='color: black;'> ACCIONES </b>";
+        echo "            <b> Acciones </b>";
         echo "        </th>";
         echo "    </tr>";
 
@@ -169,9 +171,9 @@
 
             echo "<td>";
 
-            echo "<a href='modificarmedico.php?ID=" . $row['id'] . "' class='hoverusuario'>Modificar</a>";
+            echo "<a href='modificarmedico.php?ID=" . $row['id'] . "' class='hoverusuario'><button class='btn-modificar'>Modificar</button></a>";
             echo " ";
-            echo "<a href='eliminarmedico.php?ID=" . $row['id'] . "' class='hoverusuario'>Eliminar</a>";
+            echo "<a href='eliminarmedico.php?ID=" . $row['id'] . "' class='hoverusuario'><button class='btn-eliminar'>Eliminar</button></a>";
             echo "</td>";
 
             echo "</tr>";
@@ -179,15 +181,16 @@
 
         echo "</table>";
         echo "</div>";
+
+        echo "<a href='nuevomedico.php'><button class='btn-nuevo'>Nuevo Medico</button></a> </center> <br>";
     } else {
         echo "<center><p>NO EXISTEN MEDICOS para ver..</p></center>";
     }
     ?>
 
-    <br>
-    <br>
-    <a href="../home.php">Volver al Inicio</a>
-
+    <?php
+    include('../plantillas/footer.php');
+    ?>
 </body>
 
 </html>

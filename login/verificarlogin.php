@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <title>CENTO DE SALUD - LOGIN</title>
+    <title>Centro De Salud - Verificacion</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>

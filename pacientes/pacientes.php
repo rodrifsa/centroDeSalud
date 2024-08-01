@@ -6,10 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - MEDICOS</title>
+    <title>Centro De Salud - Pacientes</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
+
+    <?php
+    //header de la pagina
+
+    include('../plantillas/header.php');
+    ?>
+
+    <nav class="nav-container">
+        <ul>
+            <li><a href="../home.php">Inicio</a></li>
+            <li><a href="../login/nuevousuario.php">Crear Usuario</a></li>
+            <li><a href="../medicos/medicos.php">M&eacute;dicos</a></li>
+            <li><a href="../pacientes/pacientes.php">Pacientes</a></li>
+            <li><a href="../turnos/turnos.php">Turnos</a></li>
+            <li><a href="../consultorios/consultorios.php">Consultorios</a></li>
+            <li><a href="../especialidades/especialidades.php">Especialidades</a></li>
+            <li><a href="../obras_sociales/obras_sociales.php">Obras Sociales</a></li>
+        </ul>
+    </nav>
 
     <?php
     //conectar a la base de datos
@@ -29,7 +50,7 @@
 
     //preparo la consulta: 1 nombre, 2 dni, 3 direccion, 4 telefono, 5 sexo, 6 edad, 7 nacimiento, 8 obra social
 
-    switch($orden) {
+    switch ($orden) {
         case 1:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -50,7 +71,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY pacientes.cnombre_apellido_paciente";
-    break;
+            break;
         case 2:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -71,7 +92,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY pacientes.ndni_paciente";
-    break;
+            break;
         case 3:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -92,7 +113,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY pacientes.cdireccion_paciente";
-    break;
+            break;
         case 4:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -113,7 +134,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY pacientes.ctel_paciente";
-    break;
+            break;
         case 5:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -134,7 +155,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY pacientes.csexo_paciente";
-    break;
+            break;
         case 6:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -155,7 +176,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY edad";
-    break;
+            break;
         case 7:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -176,7 +197,7 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY pacientes.dfecha_nac_paciente";
-    break;
+            break;
         case 8:
             $consulta = "SELECT 
     pacientes.id as 'IDP', 
@@ -197,9 +218,9 @@ LEFT JOIN
 ON 
     pacientes.idobra_sociales = obra_social.id
 ORDER BY obra_social.cnombre_obra_social";
-    break;
+            break;
         default:
-        $consulta = "SELECT 
+            $consulta = "SELECT 
     pacientes.id as 'IDP', 
     pacientes.cnombre_apellido_paciente, 
     pacientes.ndni_paciente, 
@@ -220,86 +241,56 @@ ON
 ORDER BY pacientes.cnombre_apellido_paciente";
     }
 
-
-
-    //preparo la consulta a la tabla pacientes
-//     $consulta = "SELECT 
-//     pacientes.id as 'IDP', 
-//     pacientes.cnombre_apellido_paciente, 
-//     pacientes.ndni_paciente, 
-//     pacientes.cdireccion_paciente,
-//     pacientes.ctel_paciente, 
-//     pacientes.csexo_paciente, 
-//     TIMESTAMPDIFF(YEAR, pacientes.dfecha_nac_paciente, CURDATE()) AS edad,
-//     pacientes.dfecha_nac_paciente, 
-//     pacientes.idobra_sociales, 
-//     obra_social.id, 
-//     obra_social.cnombre_obra_social
-// FROM 
-//     pacientes
-// LEFT JOIN 
-//     obra_social 
-// ON 
-//     pacientes.idobra_sociales = obra_social.id";
-
     //realizar consulta a la tabla pacientes
     $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
-    //header de la pagina
-
-    include('../plantillas/header.php');
-
-    echo "<center><u><h2>PACIENTES</h2></u>";
-
-    echo "<a href='nuevopaciente.php'>
-            <button>Nuevo Paciente</button>
-          </a> </center> <br>";
-
-
-                
-
     if ($respuesta->num_rows > 0) {
         //tabla para mostrar Pacientes
-        echo "<center>";
-        echo "<table>";
-        echo "    <tr bgcolor='gray'>";
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=1' style='color: black;'> NOMBRE </a></b>";
-        echo "        </td>";
+        echo "<div class='tabla'>";
+        echo "<center><u><h2>Pacientes</h2></u>";
+        echo "<table class='table-hover'>";
+        echo "    <tr";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=2' style='color: black;'> DNI </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=3' style='color: black;'> DIRECCION </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=1'> Nombre </a></b>";
+        echo "        </th>";
 
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=2'> Dni </a></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=4' style='color: black;'> TELEFONO </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=3'> Direccion </a></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=5' style='color: black;'> SEXO </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=4'> Telefono </a></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=6' style='color: black;'> EDAD </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=5'> Sexo </a></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=7' style='color: black;'> FECHA NACIMIENTO </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=6'> Edad </a></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b><a href='pacientes.php?orden=8' style='color: black;'> OBRA SOCIAL </a></b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=7'> Fecha Nacimiento </a></b>";
+        echo "        </th>";
 
-        echo "        <td>";
-        echo "            <b style='color: black;'> ACCIONES </b>";
-        echo "        </td>";
+        echo "        <th>";
+        echo "            <b><a href='pacientes.php?orden=8'> Obra Social </a></b>";
+        echo "        </th>";
+
+        echo "        <th>";
+        echo "            <b> Acciones </b>";
+        echo "        </th>";
         echo "    </tr>";
 
         //recorrer la respuesta
@@ -341,35 +332,27 @@ ORDER BY pacientes.cnombre_apellido_paciente";
 
             echo "<td>";
 
-            echo "<a href='modificarpaciente.php?ID=" . $row['IDP'] . "'>Modificar</a>";
+            echo "<a href='modificarpaciente.php?ID=" . $row['IDP'] . "'><button class='btn-modificar'>Modificar</button></a>";
             echo " ";
-            echo "<a href='eliminarpaciente.php?ID=" . $row['IDP'] . "'>Eliminar</a>";
+            echo "<a href='eliminarpaciente.php?ID=" . $row['IDP'] . "'><button class='btn-eliminar'>Eliminar</button></a>";
             echo "</td>";
 
             echo "</tr>";
         }
 
         echo "</table>";
-        echo "</center>";
+        echo "</div>";
+
+        echo "<a href='nuevopaciente.php'><button class='btn-nuevo'>Nuevo Paciente</button></a></center>";
+        echo "<a href='../turnos/nuevoturno.php'><button class='btn-nuevo'>Dar un turno</button></a></a>";
     } else {
         echo "<center><p>NO EXISTEN PACIENTES para ver..</p></center>";
     }
     ?>
-        <center>
-        <br>
-        <br>
-        <br>
-        <h3>Dar turno</h3>
-        <a href="../turnos/nuevoturno.php"><input type="submit" value="Dar nuevo turno"></a>
-        </center>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a href="../home.php">Volver al Inicio</a>
+
+    <?php
+    include('../plantillas/footer.php');
+    ?>
 
 </body>
 

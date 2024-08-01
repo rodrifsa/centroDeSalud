@@ -6,152 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - NUEVO MEDICO</title>
+    <title>Centro De Salud - Nuevo Medico</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
 
     <?php
 
-    $error="";
+    $error = "";
 
-    if(isset($_REQUEST['error'])){
-        $error=$_REQUEST['error'];
+    if (isset($_REQUEST['error'])) {
+        $error = $_REQUEST['error'];
     }
 
     //header de la pagina
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>NUEVO MEDICO</h2></u>";
+
 
     //conectar a la base de datos
-    $db_servidor ="127.0.0.1"; //es lo mismo que localhost
+    $db_servidor = "127.0.0.1"; //es lo mismo que localhost
     $db_usuario = "root";
-    $db_password= "";
-    $db_basededatos ="centro_de_salud";
+    $db_password = "";
+    $db_basededatos = "centro_de_salud";
 
     $conexion = mysqli_connect($db_servidor, $db_usuario, $db_password, $db_basededatos)
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
 
 
     //preparo la consulta 
-    $consulta ="SELECT id, cnombre_especialidad FROM especialidades";
-    
+    $consulta = "SELECT id, cnombre_especialidad FROM especialidades";
+
     //realizar consulta a la tabla especielidades
-    $respuesta = mysqli_query( $conexion, $consulta ) 
+    $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
     ?>
-    <center>
+
+    <div class="formulario">
         <Form action="guardarmedico.php" method="POST">
-
-            <!-- nombre del medico -->
+            <h2>Nuevo Medico</h2>
             <div class="input-form">
-                <label>Nombre :</label>
-                <input type="text" name="cnombre_medico" size="50" minlength="5" required>
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
+                <?php
+                if ($error <> "") {
+                    echo " <br><span style='color:red'>$error</span>";
+                }
                 ?>
-            </div>
 
-           <!-- dni del medico --> 
-            <div class="input-form">
-                <label>Dni :</label>
-                <input type="number" name="ndni_medico" size="8" required>
+                <label>Nombre:</label>
+                <input type="text" placeholder="Ingrese su nombre..." size="50" name="cnombre_medico" minlength="5" class="campo" required>
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
+                <label>Dni:</label>
+                <input type="number" placeholder="Ingrese su dni..." size="8" name="ndni_medico" class="campo" required>
 
-            <!-- direccion del medico -->
-            <div class="input-form">
-                <label>Direci&oacute;n :</label>
-                <input type="text" name="cdireccion_medico" size="60" required >
+                <label>Direcci&oacute;n:</label>
+                <input type="text" placeholder="Ingrese su direccion..." size="60" name="cdireccion_medico" class="campo" required>
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
+                <label>Tel&eacute;fono:</label>
+                <input type="text" placeholder="Ingrese su telefono..." size="50" name="ctelefono_medico" class="campo" required>
 
-            <!-- telefono del medico -->
-            <div class="input-form">
-                <label>Tel&eacute;fono :</label>
-                <input type="text" name="ctelefono_medico" size="50" required>
+                <label>Especialidad:</label>
+                <select name="id_especialidad" class="campo">
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
-
-            <!-- especialidad del medico --> 
-            <div class="input-form">
-                <label>Especialidad :</label>
-                <select name="id_especialidad">
-                
-                <?php 
+                    <?php
                     //recorrer la respuesta
-                    while($row = mysqli_fetch_assoc($respuesta)){
+                    while ($row = mysqli_fetch_assoc($respuesta)) {
 
-                            echo "<option value='" . $row['id'] . "'>" . $row['cnombre_especialidad'] ."</option>"; 
-                    }   
-                ?> 
+                        echo "<option value='" . $row['id'] . "'>" . $row['cnombre_especialidad'] . "</option>";
+                    }
+                    ?>
                 </select>
 
-              
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
+                <label>Matricula:</label>
+                <input type="number" placeholder="Ingrese su matricula..." size="10" name="nmatricula_medico" size="10" required class="campo">
+
+                <label>Fecha de Inicio:</label>
+                <input type="date" name="dfecha_inicio" class="campo">
+
             </div>
-
-             <!-- matricula del medico --> 
-             <div class="input-form">
-                <label>Matricula :</label>
-                <input type="number" name="nmatricula_medico" size="10" required>
-
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
-
-            <!-- inicio de actividades --> 
-            <div class="input-form">
-                <label>Fecha de Inicio :</label>
-                <input type="date" name="dfecha_inicio">
-               
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
-
-            <br>
-            <div class="input-form">
-                <input type="submit" value="Guardar">
+            <div class="btn-input">
+                <input type="submit" class="btn-nuevo nuevo" value="Agregar Medico">
+                <a href="medicos.php" class="btn-volver">Cancelar</a>
             </div>
         </Form>
 
-        <br>
-        <a href="medicos.php">
-        <button>Cancelar</button>
-        </a>
+    </div>
 
-    </center>
+    <?php
+    include('../plantillas/footer.php');
+    ?>
+
 </body>
 
 </html>

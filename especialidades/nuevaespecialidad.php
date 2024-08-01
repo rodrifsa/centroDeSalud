@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - NUEVA ESPECIALIDAD</title>
+    <title>Centro De Salud - Nueva Especialidad</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
@@ -16,25 +18,27 @@
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>NUEVA ESPECIALIDAD</h2></u>";
     ?>
-    <center>
+    <div class="formulario">
         <Form action="guardarespecialidad.php" method="POST">
+            <h2>Nueva Especialidad</h2>
+
             <div class="input-form">
-                <label>Nombre :</label>
-                <input type="text" name="cnombre_especialidad">
+                <label>Nombre:</label>
+                <input type="text" class="campo" placeholder="Ingrese la especialidad" name="cnombre_especialidad">
             </div>
-            <br>
-            <div class="input-form">
-                <input type="submit" value="Guardar">
+            
+            <div class="btn-input">
+                <input type="submit" class="btn-nuevo nuevo" value="Agregar Especialidad">
+                <a href="especialidades.php" class="btn-volver">Cancelar</a>
             </div>
         </Form>
+    </div>
 
-        <br>
-        <a href="especialidades.php">
-        <button>Cancelar</button>
-        </a>
-    </center>
+    <?php
+    include('../plantillas/footer.php');
+    ?>
+
 </body>
 
 </html>

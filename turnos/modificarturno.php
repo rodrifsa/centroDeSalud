@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - MODIFICAR TURNO</title>
+    <title>Centro De Salud - Modificar Turno</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
@@ -16,16 +18,13 @@
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>MODIFICAR TURNO</h2></u>";
-
-
     //toma la id del link en la pagina turnos.php al tocar en "Modificar"
     $ID = $_REQUEST['ID'];
 
-    $error="";
+    $error = "";
 
-    if(isset($_REQUEST['error'])){
-        $error=$_REQUEST['error'];
+    if (isset($_REQUEST['error'])) {
+        $error = $_REQUEST['error'];
     }
 
     //conectar a la base de datos
@@ -48,142 +47,113 @@
     $row = mysqli_fetch_assoc($respuesta);
 
     //preparo la consulta a la tabla obra_social
-    $consultaobra ="SELECT id, cnombre_obra_social FROM obra_social";
-    
+    $consultaobra = "SELECT id, cnombre_obra_social FROM obra_social";
+
     //realizar consulta a la tabla obra_social
-    $obra_social = mysqli_query( $conexion, $consultaobra ) 
+    $obra_social = mysqli_query($conexion, $consultaobra)
         or die("ERROR EN LA CONSULTA");
 
     //preparo la consulta a la tabla pacientes
-    $consultapacien ="SELECT id, cnombre_apellido_paciente FROM pacientes";
-    
+    $consultapacien = "SELECT id, cnombre_apellido_paciente FROM pacientes";
+
     //realizar consulta a la tabla pacientes
-    $pacientes = mysqli_query( $conexion, $consultapacien ) 
+    $pacientes = mysqli_query($conexion, $consultapacien)
         or die("ERROR EN LA CONSULTA");
 
-    
+
     //preparo la consulta a la tabla medicos
-    $consultamed ="SELECT id, cnombre_medico FROM medicos";
-    
+    $consultamed = "SELECT id, cnombre_medico FROM medicos";
+
     //realizar consulta a la tabla medicos
-    $medicos = mysqli_query( $conexion, $consultamed ) 
+    $medicos = mysqli_query($conexion, $consultamed)
         or die("ERROR EN LA CONSULTA");
 
     //preparo la consulta a la tabla consultorios
-    $consultaconsul ="SELECT id, cnombre_consultorio FROM consultorios";
-    
+    $consultaconsul = "SELECT id, cnombre_consultorio FROM consultorios";
+
     //realizar consulta a la tabla consultorios
-    $consultorios = mysqli_query( $conexion, $consultaconsul ) 
+    $consultorios = mysqli_query($conexion, $consultaconsul)
         or die("ERROR EN LA CONSULTA");
 
-   
+
 
     ?>
-    <center>
+    <div class="formulario">
         <Form action="actualizarturno.php" method="POST">
+            <h2>Modificar Turno</h2>
 
-        <!-- id del turno- campo oculto -->
-        <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
+            <!-- id del turno- campo oculto -->
+            <input type="hidden" name="ID" value="<?php echo $row['id']; ?>">
 
-             <!-- Fecha Turno -->
             <div class="input-form">
+
+                <?php
+                if ($error <> "") {
+                    echo " <br><span style='color:red'>$error</span>";
+                }
+                ?>
+
+                <!-- Fecha Turno -->
                 <label>Fecha del turno:</label>
-                <input type="datetime-local" name="fechaturno" required>
+                <input type="datetime-local" class="campo" name="fechaturno" required>
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
 
-           <!-- nombre del paciente --> 
-            <div class="input-form">
+                <!-- nombre del paciente -->
                 <label>Paciente:</label>
-                <select name="nombrepaciente">
-
+                <select name="nombrepaciente" class="campo">
                     <?php
-                    while($row = mysqli_fetch_assoc($pacientes)){
-                        echo "<option value='" . $row['id'] . "'>" . $row ['cnombre_apellido_paciente'] ."</option>";
+                    while ($row = mysqli_fetch_assoc($pacientes)) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['cnombre_apellido_paciente'] . "</option>";
                     }
 
                     ?>
-
-
                 </select>
 
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
-            </div>
-
-            <!-- obra social paciente -->
-            <div class="input-form">
-            <label>Obra Social:</label>
-                <select name="obrasocialpaciente">
-
+                <!-- obra social paciente -->
+                <label>Obra Social:</label>
+                <select name="obrasocialpaciente" class="campo">
                     <?php
-                    while($row = mysqli_fetch_assoc($obra_social)){
-                        echo "<option value='" . $row['id'] . "'>" . $row ['cnombre_obra_social'] ."</option>";
+                    while ($row = mysqli_fetch_assoc($obra_social)) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['cnombre_obra_social'] . "</option>";
                     }
 
                     ?>
-
-
                 </select>
-            </div>
 
-            <!-- medico -->
-            <div class="input-form">
-            <label>Medico:</label>
-                <select name="medicoturno">
-
+                <!-- medico -->
+                <label>Medico:</label>
+                <select name="medicoturno" class="campo">
                     <?php
-                    while($row = mysqli_fetch_assoc($medicos)){
-                        echo "<option value='" . $row['id'] . "'>" . $row ['cnombre_medico'] ."</option>";
+                    while ($row = mysqli_fetch_assoc($medicos)) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['cnombre_medico'] . "</option>";
                     }
 
                     ?>
+                </select>
 
-
-                </select>   
-            </div>
-
-            <!-- consultorio --> 
-            <div class="input-form">
+                <!-- consultorio -->
                 <label>Consultorio:</label>
-                <select name="consultorioturno">
-
+                <select name="consultorioturno" class="campo">
                     <?php
-                    while($row = mysqli_fetch_assoc($consultorios)){
-                        echo "<option value='" . $row['id'] . "'>" . $row ['cnombre_consultorio'] ."</option>";
+                    while ($row = mysqli_fetch_assoc($consultorios)) {
+                        echo "<option value='" . $row['id'] . "'>" . $row['cnombre_consultorio'] . "</option>";
                     }
 
                     ?>
-
-
                 </select>
-                <?php 
-                    if($error<>""){
-                        echo" <br><span style='color:red'>$error</span>";
-                    }
-                ?>
             </div>
 
-            <br>
-            <div class="input-form">
-                <input type="submit" value="Guardar">
+            <div class="btn-input">
+                <input type="submit" class="btn-nuevo nuevo" value="Modificar datos">
+                <a href="turnos.php" class="btn-volver">Cancelar</a>
             </div>
 
         </Form>
-        
-        <br>
-        <a href="turnos.php">
-        <button>Cancelar</button>
-        </a>
-    </center>
+    </div>
+    
+    <?php
+    include('../plantillas/footer.php');
+    ?>
 </body>
 
 </html>

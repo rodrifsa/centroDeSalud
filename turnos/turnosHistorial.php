@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - HISTORIAL TURNOS</title>
+    <title>Centro De Salud - Historial Turnos</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
 
 
-<?php
+    <?php
     //conectar a la base de datos
-    $db_servidor ="127.0.0.1"; //es lo mismo que localhost
+    $db_servidor = "127.0.0.1"; //es lo mismo que localhost
     $db_usuario = "root";
-    $db_password= "";
-    $db_basededatos ="centro_de_salud";
+    $db_password = "";
+    $db_basededatos = "centro_de_salud";
 
     $conexion = mysqli_connect($db_servidor, $db_usuario, $db_password, $db_basededatos)
         or die("NO SE PUDO CONECTAR A LA BASE DE DATOS");
@@ -28,7 +30,7 @@
 
 
     //preparo la consulta: 1 ordenar por fecha, 2 ordenar por paciente, 3 ordenar por obra social, 4 ordenar por medico, 5 ordenar por obra social
-  
+
     switch ($orden) {
         case 1:
             $consulta = "SELECT turnos.id AS 'IDT', dttfecha_hora_turno, pacientes.cnombre_apellido_paciente, medicos.cnombre_medico, consultorios.cnombre_consultorio, obra_social.cnombre_obra_social
@@ -92,113 +94,97 @@
             break;
     }
 
-
-
-    //preparo la consulta 
-//     $consulta ="SELECT turnos.id AS 'IDT', dttfecha_hora_turno, pacientes.cnombre_apellido_paciente, medicos.cnombre_medico, consultorios.cnombre_consultorio, obra_social.cnombre_obra_social
-// FROM turnos
-// LEFT JOIN pacientes on turnos.idpacientes = pacientes.id
-// LEFT JOIN medicos on turnos.idmedicos = medicos.id
-// LEFT JOIN consultorios on turnos.idconsultorios = consultorios.id
-// LEFT JOIN obra_social on turnos.idobra_sociales = obra_social.id
-// ORDER BY dttfecha_hora_turno";
-    
     //realizar consulta a la tabla especielidades
-    $respuesta = mysqli_query( $conexion, $consulta ) 
+    $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
     //header de la pagina
 
     include('../plantillas/header.php');
 
-    echo "<center><u><h2>HISTORIAL TURNOS</h2></u>";
-    echo "</center>";
-
-    if($respuesta->num_rows >0) {
+    if ($respuesta->num_rows > 0) {
         //tabla para mostrar turnos
-        echo "<center>";
-        echo "<br>";
-        echo "<br>";
-        echo "<table>";
-        echo "    <tr bgcolor='grey'>";
-        echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=1' style='color: black;'>FECHA TURNOS</a></b>";
-        echo "      </td>";
-        echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=2' style='color: black;'>NOMBRE DEL PACIENTE</a></b>";
-        echo "      </td>";
-        echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=3' style='color: black;'>OBRA SOCIAL PACIENTE</a></b>";
-        echo "      </td>";
-        echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=4' style='color: black;'>MEDICO</a></b>";
-        echo "      </td>";
-        echo "      <td>";
-        echo "          <b><a href='turnosHistorial.php?orden=5' style='color: black;'>CONSULTORIO</a></b>";
-        echo "      </td>";
-        echo "       <td>";
-        echo "           <b style='color: black;'> ACCIONES </b>";
-        echo "       </td>";
+        echo "<div class='tabla'>";
+        echo "<center><u><h2>Historial de Turnos</h2></u>";
+        echo "<table class='table-hover'>";
+        echo "    <tr>";
+
+        echo "      <th>";
+        echo "          <b><a href='turnosHistorial.php?orden=1'>Fecha Del Turno</a></b>";
+        echo "      </th>";
+
+        echo "      <th>";
+        echo "          <b><a href='turnosHistorial.php?orden=2'>Nombre Del Paciente</a></b>";
+        echo "      </th>";
+
+        echo "      <th>";
+        echo "          <b><a href='turnosHistorial.php?orden=3'>Obra Social</a></b>";
+        echo "      </th>";
+
+        echo "      <th>";
+        echo "          <b><a href='turnosHistorial.php?orden=4'>Medico</a></b>";
+        echo "      </th>";
+
+        echo "      <th>";
+        echo "          <b><a href='turnosHistorial.php?orden=5'>Consultorio</a></b>";
+        echo "      </th>";
+
+        echo "       <th>";
+        echo "           <b> Acciones </b>";
+        echo "       </th>";
+
         echo "    </tr>";
 
 
         //recorrer la respuesta
-        while($row = mysqli_fetch_assoc($respuesta)){
+        while ($row = mysqli_fetch_assoc($respuesta)) {
 
             echo "<tr>";
 
             echo "<td>";
-                echo $row['dttfecha_hora_turno'];
+            echo $row['dttfecha_hora_turno'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['cnombre_apellido_paciente'];
+            echo $row['cnombre_apellido_paciente'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['cnombre_obra_social'];
+            echo $row['cnombre_obra_social'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['cnombre_medico'];
+            echo $row['cnombre_medico'];
             echo "</td>";
 
             echo "<td>";
-                echo $row['cnombre_consultorio'];
+            echo $row['cnombre_consultorio'];
             echo "</td>";
 
-
-
             echo "<td>";
-
-            
-                echo "<a href='modificarturno.php?ID=" . $row['IDT'] . "'>Modificar</a>";
-                echo " ";
-                echo "<a href='eliminarturno.php?ID=" . $row['IDT'] . "'>Eliminar</a>";
+            echo "<a href='modificarturno.php?ID=" . $row['IDT'] . "'><button class='btn-modificar'> Modificar </button></a>";
+            echo " ";
+            echo "<a href='eliminarturno.php?ID=" . $row['IDT'] . "'><button class='btn-eliminar'> Eliminar </button></a>";
             echo "</td>";
 
             echo "</tr>";
         }
 
         echo "</table>";
-        echo "</center>";
+        echo "</div>";
     } else {
         echo "<center><p>NO EXISTEN TURNOS para ver..</p></center>";
     }
 
-?>
-<center>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<a href="turnos.php">Volver a turnos pendientes</a>
-<br>
-<br>
-<a href="../home.php">Volver al Inicio</a>
-</center>
+    ?>
+    <center>
+
+        <a href="turnos.php" class="btn-volver">Volver a turnos</a>
+    </center>
+
+    <?php
+    include('../plantillas/footer.php');
+    ?>
 </body>
 
 </html>

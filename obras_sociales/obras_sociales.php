@@ -6,10 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>CENTRO DE SALUD - OBRAS SOCIALES</title>
+    <title>Centro De Salud - Obras Sociales</title>
+
+    <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
 
 <body>
+
+    <?php
+    //header de la pagina
+
+    include('../plantillas/header.php');
+    ?>
+
+    <nav class="nav-container">
+        <ul>
+            <li><a href="../home.php">Inicio</a></li>
+            <li><a href="../login/nuevousuario.php">Crear Usuario</a></li>
+            <li><a href="../medicos/medicos.php">M&eacute;dicos</a></li>
+            <li><a href="../pacientes/pacientes.php">Pacientes</a></li>
+            <li><a href="../turnos/turnos.php">Turnos</a></li>
+            <li><a href="../consultorios/consultorios.php">Consultorios</a></li>
+            <li><a href="../especialidades/especialidades.php">Especialidades</a></li>
+            <li><a href="../obras_sociales/obras_sociales.php">Obras Sociales</a></li>
+        </ul>
+    </nav>
 
     <?php
     //conectar a la base de datos
@@ -30,30 +51,21 @@
     $respuesta = mysqli_query($conexion, $consulta)
         or die("ERROR EN LA CONSULTA");
 
-    //header de la pagina
-
-    include('../plantillas/header.php');
-
-    echo "<center><u><h2>OBRAS SOCIALES</h2></u>";
-
-    echo "<a href='nuevaobra.php'>
-            <button>Agregar nueva obra social</button>
-          </a> </center> <br>";
-
-
-
     if ($respuesta->num_rows > 0) {
         //tabla para mostrar las obras sociales
-        echo "<center>";
-        echo "<table>";
-        echo "    <tr bgcolor='gray'>";
-        echo "        <td>";
-        echo "            <b> Obras Sociales </b>";
-        echo "        </td>";
+        echo "<div class='tabla'>";
+        echo "<center><u><h2>Obras Sociales</h2></u>";
+        echo "<table class='table-hover'>";
+        echo "    <tr>";
 
-        echo "        <td>";
+        echo "        <th>";
+        echo "            <b> Obras Sociales </b>";
+        echo "        </th>";
+
+        echo "        <th>";
         echo "            <b> Acciones </b>";
-        echo "        </td>";
+        echo "        </th>";
+
         echo "    </tr>";
 
         //recorrer la respuesta
@@ -67,24 +79,26 @@
 
             echo "<td>";
 
-            echo "<a href='modificarobra.php?ID=" . $row['id'] . "'>Modificar</a>";
+            echo "<a href='modificarobra.php?ID=" . $row['id'] . "'><button class='btn-modificar'>Modificar</button></a>";
             echo " ";
-            echo "<a href='eliminarobra.php?ID=" . $row['id'] . "'>Eliminar</a>";
+            echo "<a href='eliminarobra.php?ID=" . $row['id'] . "'><button class='btn-eliminar'>Eliminar</button></a>";
             echo "</td>";
 
             echo "</tr>";
         }
 
         echo "</table>";
-        echo "</center>";
+        echo "</div>";
+
+        echo "<a href='nuevaobra.php'><button class='btn-nuevo'>Agregar nueva obra social</button></a> </center>";
     } else {
         echo "<center><p>NO EXISTEN PACIENTES para ver..</p></center>";
     }
     ?>
 
-    <br>
-    <br>
-    <a href="../home.php">Volver al Inicio</a>
+    <?php
+    include('../plantillas/footer.php');
+    ?>
 
 </body>
 

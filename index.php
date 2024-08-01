@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Centro de salud fermoza</title>
+    <title>Centro De Salud Fermoza</title>
+
+    <link rel="icon" type="ico" href="images/favicon.ico" />
 </head>
 
 <body>
@@ -15,17 +17,17 @@
     ?>
 
     <nav class="nav-container">
-        <ul id="nav-links">
-            <li><a href="#" class="links">Inico</a></li>
-            <li><a href="#quienes_somos" class="links">Quienes Somos?</a></li>
-            <li><a href="#profesionales" class="links">Profesionales</a></li>
-            <li><a href="#especialidades" class="links">Especialidades</a></li>
-            <li><a href="login/login.php" class="links">Acceso</a></li>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#quienes_somos">Quienes Somos?</a></li>
+            <li><a href="#profesionales">Profesionales</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="login/login.php">Acceso</a></li>
         </ul>
     </nav>
 
-    <section class="secciones">
-        <section id="quienes_somos">
+    <div id="quienes_somos" class="secciones">
+        <section class="info">
 
             <div>
                 <img src="profesionales.png">
@@ -38,12 +40,12 @@
             </div>
 
         </section>
-    </section>
+    </div>
 
 
     <section id="profesionales">
         <h2>Nuestros Profesionales</h2>
-        <div class="swiper mySwiper">
+        <div class="swiper">
 
             <div class="swiper-wrapper">
                 <div class="card swiper-slide">
@@ -93,8 +95,6 @@
                         <span class="card__name"><strong>Oncólogo</strong></span>
                     </div>
                 </div>
-                
-
             </div>
 
             <div class="swiper-wrapper">
@@ -143,10 +143,10 @@
                         <span class="card__title">Dra. Jessica Ramirez</span>
                         <br>
                         <span class="card__name"><strong>Dentista</strong></span>
+                    </div>
                 </div>
-                
-
             </div>
+
         </div>
     </section>
 
@@ -251,25 +251,6 @@
     <?php
     include('plantillas/footer.php');
     ?>
-
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 300,
-                modifier: 1,
-                slideShadows: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-    </script>
 
 </body>
 
