@@ -14,7 +14,7 @@
 <body>
     
     <?php 
-        include('plantillas/header_index.php');
+        include('plantillas/header_home.php');
     ?>
 
     <nav class="nav-container">

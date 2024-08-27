@@ -13,7 +13,7 @@
 <body>
 
     <?php
-    include('../plantillas/header.php');
+    include('../plantillas/header_login.php');
     ?>
 
     <div class="page">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
 
-    <title>Centro De Salud - Medicos</title>
+    <title>Centro De Salud - Médicos</title>
 
     <link rel="icon" type="ico" href="../images/favicon.ico" />
 </head>
@@ -106,7 +106,7 @@
     if ($respuesta->num_rows > 0) {
         //tabla para mostrar medicos
         echo "<div class='tabla'>";
-        echo "<center><u><h2>Medicos</h2></u>";
+        echo "<center><u><h2>Médicos</h2></u>";
         echo "<table class='table-hover'>";
         echo "    <tr>";
 
