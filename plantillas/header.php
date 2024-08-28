@@ -2,7 +2,7 @@
 <header>
 
 <div class="btn-cerrar">
-    <a href="index.php" class="button-sesion"><button class="btn-eliminar">X Cerrar Sesion</button></a>
+    <a href="../index.php" class="button-sesion"><button class="btn-eliminar">X Cerrar Sesion</button></a>
 </div>
 
 <div class="contenedor-header">
