@@ -785,5 +785,16 @@ a {
   padding: 20px;
 }
 
-
-
+.bienvenida{
+  margin-top: 18px;
+  margin-left: 15px;
+  font-size: 15px;
+  position: absolute;
+  text-align: center;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(110, 123, 218);
+  padding: 7px;
+  border-radius: 3px;
+  font-family: "Segoe UI", sans-serif;
+}

@@ -7,13 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 
     <title>Centro De Salud Fermoza</title>
-
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet" />
     <link rel="icon" type="ico" href="images/favicon.ico" />
 </head>
 
 <body>
     
+    
     <?php 
+        //session_start();
+        //$_SESSION['username'] = $username; // $username contiene el nombre de usuario.
+        
+    session_start();
+    if (isset($_SESSION['usuario'])) {
+        echo "<p class='bienvenida'><i class='ri-user-fill'></i>Usuario: " . htmlspecialchars($_SESSION['usuario']) . "</p>";
+    } else {
+        echo "<p>Bienvenido, Invitado</p>";
+    }
+
         include('plantillas/header_home.php');
     ?>
 

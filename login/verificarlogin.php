@@ -63,7 +63,8 @@
         header("location: ../home.php");
     }
 
-
+    session_start();
+    $_SESSION['usuario'] = $usuario; // $username contiene el nombre de usuario.
     ?>
 
 </body>
